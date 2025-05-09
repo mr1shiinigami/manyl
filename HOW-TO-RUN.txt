@@ -1,0 +1,49 @@
+=============================
+HOW TO RUN MANYL AUTO SERVICES APP
+=============================
+
+The application may not start properly due to Windows PowerShell restrictions. 
+Here are 3 different methods to run the app:
+
+METHOD 1: Using Command Prompt (Recommended)
+-------------------------------------------
+1. Press Windows + R to open the Run dialog
+2. Type "cmd" and press Enter to open Command Prompt
+3. Navigate to the app directory:
+   cd "C:\Users\MN COMPUTER\Documents\WORKTIME\car-electrical-services"
+4. Run the app with:
+   npm run local
+5. Once started, open a browser and go to: http://localhost:3000
+
+METHOD 2: Using the CMD Scripts
+-----------------------------
+1. Open File Explorer and navigate to:
+   C:\Users\MN COMPUTER\Documents\WORKTIME\car-electrical-services
+2. Double-click the "runapp.cmd" file
+3. A command window will open and run the app
+4. Once started, open a browser and go to: http://localhost:3000
+
+METHOD 3: Using PowerShell with Separate Commands
+-----------------------------------------------
+If you must use PowerShell:
+1. Open PowerShell
+2. Change to the app directory:
+   cd "C:\Users\MN COMPUTER\Documents\WORKTIME\car-electrical-services"
+3. Run the local script:
+   npm run local
+4. Once started, open a browser and go to: http://localhost:3000
+
+TROUBLESHOOTING
+--------------
+If you still can't access the app:
+
+1. Open the check-running.html file in your browser to check if the app is running
+2. Try accessing the app with these alternative URLs:
+   - http://127.0.0.1:3000
+   - http://localhost:3000
+   - http://[YOUR_COMPUTER_NAME]:3000
+
+3. Make sure your firewall isn't blocking port 3000
+4. Try restarting your computer
+
+For further help, contact MANYL AUTO SERVICES support.

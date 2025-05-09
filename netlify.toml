@@ -1,0 +1,46 @@
+# Netlify configuration file for MANYL AUTO SERVICES Next.js app
+
+[build]
+  # Command to build your Next.js site
+  command = "npm run build"
+  
+  # The directory that Netlify will publish (deploy)
+  # For Next.js, Netlify's build plugin (@netlify/plugin-nextjs)
+  # handles this automatically, typically using the .next directory.
+  # It's often best to let the plugin manage this.
+  # publish = ".next" # Uncomment if explicitly needed, but usually not required.
+
+  # Environment variables can be set in the Netlify UI, 
+  # but you can also define build-time defaults here if needed.
+  # [build.environment]
+  #   NEXT_PUBLIC_API_URL = "https://api.example.com"
+
+# Netlify's Next.js plugin usually handles redirects for dynamic routes correctly.
+# However, if you need specific custom redirects or rewrites, you can add them here.
+# For a standard Next.js app using App Router or Pages Router, this is often not needed
+# for basic functionality as the plugin takes care of it.
+# [[redirects]]
+#   from = "/old-path"
+#   to = "/new-path"
+#   status = 301 # Permanent redirect
+
+# This rule is a common fallback for Single Page Applications (SPAs)
+# or if you were using purely static export with client-side routing.
+# For Next.js with its robust routing, this specific rule might not be necessary
+# or could interfere if not configured correctly for Next.js's needs.
+# The Netlify Next.js plugin typically handles routing fallbacks.
+# [[redirects]]
+#   from = "/*"
+#   to = "/index.html" # For Next.js, this should point to the correct entry, handled by the plugin
+#   status = 200
+
+[functions]
+  # Specifies the directory where your serverless functions are located.
+  # For Next.js API routes (app router or pages/api), Netlify's plugin
+  # automatically discovers and deploys them from the correct Next.js directories.
+  # directory = "netlify/functions" # Only needed if you have custom Netlify functions outside Next.js API routes.
+
+# Settings for the Netlify Next.js runtime/plugin
+# This plugin is usually auto-installed and configured by Netlify.
+# [plugins."@netlify/plugin-nextjs"]
+  # You can specify plugin inputs here if needed, but defaults are usually fine. 

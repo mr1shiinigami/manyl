@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Check if MANYL AUTO SERVICES is running</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f5f5f5;
+        }
+        .container {
+            text-align: center;
+            padding: 30px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            max-width: 500px;
+        }
+        h1 {
+            color: #3563E9;
+        }
+        #status {
+            font-size: 18px;
+            margin: 20px 0;
+            padding: 15px;
+            border-radius: 5px;
+        }
+        .success {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .error {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        .loading {
+            background-color: #fff3cd;
+            color: #856404;
+        }
+        button {
+            background-color: #3563E9;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #2952c8;
+        }
+        .links {
+            margin-top: 20px;
+        }
+        .links a {
+            display: block;
+            margin: 10px 0;
+            color: #3563E9;
+            text-decoration: none;
+        }
+        .links a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>MANYL AUTO SERVICES</h1>
+        <div id="status" class="loading">Checking if the app is running...</div>
+        <button onclick="checkStatus()">Check Again</button>
+        
+        <div class="links">
+            <a href="http://localhost:3000" target="_blank">Open App in Browser</a>
+            <a href="http://127.0.0.1:3000" target="_blank">Try Alternative URL (127.0.0.1)</a>
+        </div>
+    </div>
+
+    <script>
+        function checkStatus() {
+            const statusElement = document.getElementById('status');
+            statusElement.className = 'loading';
+            statusElement.textContent = 'Checking if the app is running...';
+            
+            fetch('http://localhost:3000', { mode: 'no-cors' })
+                .then(() => {
+                    statusElement.className = 'success';
+                    statusElement.innerHTML = 'Success! The app appears to be running.<br>Click "Open App in Browser" to access it.';
+                })
+                .catch(error => {
+                    statusElement.className = 'error';
+                    statusElement.innerHTML = 'Error: The app does not seem to be running.<br>Please make sure to start the server first with the runapp.cmd file.';
+                    console.error('Error checking status:', error);
+                });
+        }
+        
+        // Check status when page loads
+        window.onload = checkStatus;
+    </script>
+</body>
+</html> 
